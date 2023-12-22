@@ -1,8 +1,8 @@
+namespace AirbnbGrpc.Repository;
 
-namespace AirbnbGrpc.Repository
+using AirbnbGrpc.Models;
+
+public interface IAirbnbRepository
 {
-    public interface IAirbnbRepository
-    {
-        Task<AirbnbResponse> GetAirbnbResponseAsync(AirbnbRequest airbnbRequest);
-    }
+    Task<List<ListingsAndReview>> GetAllAirbnListingsAsync();
 }
