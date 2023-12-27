@@ -1,7 +1,10 @@
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace AirbnbGrpc.Models;
 
 public class ListingsAndReview
     {
+        [BsonId]
         public string _id { get; set; }
         public string listing_url { get; set; }
         public string name { get; set; }

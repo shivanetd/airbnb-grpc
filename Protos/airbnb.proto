@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+
+option csharp_namespace = "AirbnbGrpc";
+
+package AirbnbGrpc.Services;
+
+service Airbnb {
+    rpc Listing (ListingRequest) returns (AirbnbListings);
+}
+
+message ListingRequest {
+    string id = 1;
+}
+
+message AirbnbListings {
+    string _id = 1;
+	string listing_url = 2;
+	string name = 3;
+	string summary = 4;
+	string space = 5;
+	string description = 6;
+	string neighborhood_overview = 7;
+	string notes = 8;
+	string transit = 9;
+	string access = 10;
+	string interaction = 11;
+	string house_rules = 12;
+	string property_type = 13;
+	string room_type = 14;
+	string bed_type = 15;
+	string minimum_nights = 16;
+	string maximum_nights = 17;
+	string cancellation_policy = 18;
+}
