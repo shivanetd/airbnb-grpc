@@ -5,21 +5,23 @@ using Microsoft.Extensions.Options;
 
 namespace AirbnbGrpc.Repository;
 
+
 public class AirbnnRepository : IAirbnbRepository
 {
     private readonly ILogger<AirbnnRepository> _logger;
     
     private readonly  IMongoCollection<ListingsAndReview> _listingsAndReviewsCollection; 
 
-    public AirbnnRepository(ILogger<AirbnnRepository> logger, IOptions<MongoConfig> mongoConfig)
+    public AirbnnRepository(ILogger<AirbnnRepository> logger, IConfiguration configuration)
     {
         _logger = logger;
+        var config = configuration.GetSection("MongoConfig").Get<MongoConfig>();
         
-        var client = new MongoClient(mongoConfig.Value.ConnectionString);
+        var client = new MongoClient(config.ConnectionString);
 
-        var database = client.GetDatabase(mongoConfig.Value.Database);
+        var database = client.GetDatabase(config.Database);
 
-        _listingsAndReviewsCollection = database.GetCollection<ListingsAndReview>(mongoConfig.Value.Collection);
+        _listingsAndReviewsCollection = database.GetCollection<ListingsAndReview>(config.Collection);
 
     }
 

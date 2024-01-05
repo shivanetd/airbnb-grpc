@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option csharp_namespace = "AirbnbGrpc";
+option csharp_namespace = "AirbnbGrpc.Services";
 
-package greet;
+package AirbnbGrpc.Services;
 
 // The greeting service definition.
 service Greeter {

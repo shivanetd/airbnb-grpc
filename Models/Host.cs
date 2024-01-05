@@ -13,7 +13,7 @@ public class Host
     public bool host_is_superhost { get; set; }
     public bool host_has_profile_pic { get; set; }
     public bool host_identity_verified { get; set; }
-    public string host_listings_count { get; set; }
-    public string host_total_listings_count { get; set; }
+    public int host_listings_count { get; set; }
+    public int host_total_listings_count { get; set; }
     public List<string> host_verifications { get; set; }
 }
